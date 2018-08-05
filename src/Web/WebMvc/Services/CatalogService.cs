@@ -83,6 +83,10 @@ namespace WebMvc.Services
             var getBrandsUri    = ApiPaths.Catalog.GetAllBrands(_remoteServiceBaseUrl);
             var dataString      = await _apiClinet.GetStringAsync(getBrandsUri);
 
+            Console.WriteLine("[CatalogService][GetBrands()]: - _remoteServiceBaseUrl: "    + _remoteServiceBaseUrl);       
+            Console.WriteLine("[CatalogService][GetBrands()]: - getBrandsUri: "    + getBrandsUri);   
+            Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");            
+
             var brandItems = new List<SelectListItem>
             {
                 new SelectListItem() 

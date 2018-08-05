@@ -23,8 +23,10 @@ namespace WebMvc.Infrastructure
                     var typeQs  = (type.HasValue)  ? type.Value.ToString()  : "null";
                     filterQs = $"/type/{typeQs}/brand/{brandQs}";
                 }
+                
                 Console.WriteLine("[ApiPaths][Catalog][GetAllCatalogItems]: - (returning): " 
                                     + ($"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}"));   
+
                 return $"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}";          
             }
 
@@ -42,7 +44,12 @@ namespace WebMvc.Infrastructure
                 string baseUri
             )
             {
-                return $"{baseUri}/catalogBrands";
+                Console.WriteLine("[ApiPaths][Catalog][GetAllBrands]: - (baseUri): " 
+                                    + (baseUri));                   
+                Console.WriteLine("[ApiPaths][Catalog][GetAllBrands]: - (returning): " 
+                                    + ($"{baseUri}CatalogBrands"));   
+
+                return $"{baseUri}catalogBrands";
             }
 
             public static string GetAllTypes
@@ -50,7 +57,12 @@ namespace WebMvc.Infrastructure
                 string baseUri
             )
             {
-                return $"{baseUri}/catalogTypes"; 
+                Console.WriteLine("[ApiPaths][Catalog][GetAllTypes]: - (baseUri): " 
+                                    + (baseUri));                 
+                Console.WriteLine("[ApiPaths][Catalog][GetAllTypes]: - (returning): " 
+                                    + ($"{baseUri}CatalogTypes"));   
+
+                return $"{baseUri}catalogTypes"; 
             }        
         }
     }
