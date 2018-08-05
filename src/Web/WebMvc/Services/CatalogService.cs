@@ -114,8 +114,12 @@ namespace WebMvc.Services
         }
         public async Task<IEnumerable<SelectListItem>> GetTypes()
         {
-            var getTypesUri    = ApiPaths.Catalog.GetAllBrands(_remoteServiceBaseUrl);
+            var getTypesUri    = ApiPaths.Catalog.GetAllTypes(_remoteServiceBaseUrl);
             var dataString      = await _apiClinet.GetStringAsync(getTypesUri);
+
+            Console.WriteLine("[CatalogService][GetTypes()]: - _remoteServiceBaseUrl: "    + _remoteServiceBaseUrl);       
+            Console.WriteLine("[CatalogService][GetTypes()]: - getTypesUri: "    + getTypesUri);   
+            Console.WriteLine("[CatalogService][GetTypes]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");            
 
             var typeItems = new List<SelectListItem>
             {
@@ -129,14 +133,14 @@ namespace WebMvc.Services
 
             var types = JArray.Parse(dataString);
 
-            foreach ( var brand in types.Children<JObject>() )
+            foreach ( var type in types.Children<JObject>() )
             {
                 typeItems.Add
                 (
                     new SelectListItem()
                     {
-                        Value = brand.Value<string>("id"),
-                        Text = brand.Value<string>("type")
+                        Value = type.Value<string>("id"),
+                        Text =  type.Value<string>("type")
                     }
                 );
             }
