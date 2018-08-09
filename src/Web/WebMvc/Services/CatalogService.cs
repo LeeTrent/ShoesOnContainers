@@ -64,7 +64,7 @@ namespace WebMvc.Services
             );
 
             // Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync == null): "  + (dataString == null));   
-            // Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");   
+            Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");   
 
             var response = JsonConvert.DeserializeObject<Catalog>
             (
@@ -83,9 +83,9 @@ namespace WebMvc.Services
             var getBrandsUri    = ApiPaths.Catalog.GetAllBrands(_remoteServiceBaseUrl);
             var dataString      = await _apiClinet.GetStringAsync(getBrandsUri);
 
-            Console.WriteLine("[CatalogService][GetBrands()]: - _remoteServiceBaseUrl: "    + _remoteServiceBaseUrl);       
-            Console.WriteLine("[CatalogService][GetBrands()]: - getBrandsUri: "    + getBrandsUri);   
-            Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");            
+            // Console.WriteLine("[CatalogService][GetBrands()]: - _remoteServiceBaseUrl: "    + _remoteServiceBaseUrl);       
+            // Console.WriteLine("[CatalogService][GetBrands()]: - getBrandsUri: "    + getBrandsUri);   
+            // Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");            
 
             var brandItems = new List<SelectListItem>
             {
@@ -117,9 +117,9 @@ namespace WebMvc.Services
             var getTypesUri    = ApiPaths.Catalog.GetAllTypes(_remoteServiceBaseUrl);
             var dataString      = await _apiClinet.GetStringAsync(getTypesUri);
 
-            Console.WriteLine("[CatalogService][GetTypes()]: - _remoteServiceBaseUrl: "    + _remoteServiceBaseUrl);       
-            Console.WriteLine("[CatalogService][GetTypes()]: - getTypesUri: "    + getTypesUri);   
-            Console.WriteLine("[CatalogService][GetTypes]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");            
+            // Console.WriteLine("[CatalogService][GetTypes()]: - _remoteServiceBaseUrl: "    + _remoteServiceBaseUrl);       
+            // Console.WriteLine("[CatalogService][GetTypes()]: - getTypesUri: "    + getTypesUri);   
+            // Console.WriteLine("[CatalogService][GetTypes]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");            
 
             var typeItems = new List<SelectListItem>
             {

@@ -24,8 +24,8 @@ namespace WebMvc.Infrastructure
                     filterQs = $"/type/{typeQs}/brand/{brandQs}";
                 }
                 
-                Console.WriteLine("[ApiPaths][Catalog][GetAllCatalogItems]: - (returning): " 
-                                    + ($"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}"));   
+                // Console.WriteLine("[ApiPaths][Catalog][GetAllCatalogItems]: - (returning): " 
+                //                     + ($"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}"));   
 
                 return $"{baseUri}items{filterQs}?pageIndex={page}&pageSize={take}";          
             }
@@ -44,10 +44,10 @@ namespace WebMvc.Infrastructure
                 string baseUri
             )
             {
-                Console.WriteLine("[ApiPaths][Catalog][GetAllBrands]: - (baseUri): " 
-                                    + (baseUri));                   
-                Console.WriteLine("[ApiPaths][Catalog][GetAllBrands]: - (returning): " 
-                                    + ($"{baseUri}CatalogBrands"));   
+                // Console.WriteLine("[ApiPaths][Catalog][GetAllBrands]: - (baseUri): " 
+                //                     + (baseUri));                   
+                // Console.WriteLine("[ApiPaths][Catalog][GetAllBrands]: - (returning): " 
+                //                     + ($"{baseUri}CatalogBrands"));   
 
                 return $"{baseUri}catalogBrands";
             }
@@ -57,10 +57,10 @@ namespace WebMvc.Infrastructure
                 string baseUri
             )
             {
-                Console.WriteLine("[ApiPaths][Catalog][GetAllTypes]: - (baseUri): " 
-                                    + (baseUri));                 
-                Console.WriteLine("[ApiPaths][Catalog][GetAllTypes]: - (returning): " 
-                                    + ($"{baseUri}CatalogTypes"));   
+                // Console.WriteLine("[ApiPaths][Catalog][GetAllTypes]: - (baseUri): " 
+                //                     + (baseUri));                 
+                // Console.WriteLine("[ApiPaths][Catalog][GetAllTypes]: - (returning): " 
+                //                     + ($"{baseUri}CatalogTypes"));   
 
                 return $"{baseUri}catalogTypes"; 
             }        

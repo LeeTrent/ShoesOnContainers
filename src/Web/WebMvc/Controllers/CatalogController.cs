@@ -34,10 +34,22 @@ namespace WebMvc.Controllers
                 BrandFilterApplied,
                 TypeFileterApplied
             );
+
+            foreach (CatalogItem ci in catalog.Data)
+            {
+                Console.WriteLine("  "); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.PictureUri)....: " + (ci.PictureUri)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.Id)............: " + (ci.Id)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.Name)..........: " + (ci.Name)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.Description)...: " + (ci.Description)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.Price).........: " + (ci.Price)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.Price).........: " + (ci.CatalogBrandId)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.CatalogTypeId).: " + (ci.CatalogTypeId)); 
+            }
             
-            Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetCatalogItems() == null): " + (catalog == null));
-            Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetBrands() == null): " + (_catalogSvc.GetBrands() == null));
-            Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetTypes() == null): " + (_catalogSvc.GetTypes() == null));
+            // Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetCatalogItems() == null): " + (catalog == null));
+            // Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetBrands() == null): " + (_catalogSvc.GetBrands() == null));
+            // Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetTypes() == null): " + (_catalogSvc.GetTypes() == null));
             
             var vm = new CatalogIndexViewModel()
             {
