@@ -38,7 +38,7 @@ namespace WebMvc.Controllers
             foreach (CatalogItem ci in catalog.Data)
             {
                 Console.WriteLine("  "); 
-                Console.WriteLine("[CatalogController][Index]: (CatalogItem.PictureUri)....: " + (ci.PictureUri)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.PictureUrl)....: " + (ci.PictureUrl)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Id)............: " + (ci.Id)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Name)..........: " + (ci.Name)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Description)...: " + (ci.Description)); 
