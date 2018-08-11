@@ -47,6 +47,12 @@ namespace WebMvc.Services
             int? type
         )
         {
+            Console.WriteLine("");
+            Console.WriteLine( "[CatalogService][GetCatalogItems] - (page)..: " + (page));
+            Console.WriteLine( "[CatalogService][GetCatalogItems] - (take)..: " + (take));
+            Console.WriteLine( "[CatalogService][GetCatalogItems] - (brand).: " + (brand));
+            Console.WriteLine( "[CatalogService][GetCatalogItems] - (type)..: " + (type));
+
             var allCatalogItemsUri = ApiPaths.Catalog.GetAllCatalogItems
             (
                 _remoteServiceBaseUrl,
@@ -64,7 +70,7 @@ namespace WebMvc.Services
             );
 
             // Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync == null): "  + (dataString == null));   
-            Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");   
+            //Console.WriteLine("[CatalogService][GetCatalogItems]: - (_apiClinet.GetStringAsync): \n"        + (dataString) + "\n");   
 
             var response = JsonConvert.DeserializeObject<Catalog>
             (

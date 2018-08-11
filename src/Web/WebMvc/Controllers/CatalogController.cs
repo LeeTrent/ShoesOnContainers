@@ -19,12 +19,15 @@ namespace WebMvc.Controllers
         public async Task<IActionResult> Index
         (
             int? BrandFilterApplied,
-            int? TypeFileterApplied,
+            int? TypeFilterApplied,
             int? page
         )
         {
             //Console.WriteLine("[CatalogController][Index]: - (): " + ());
-            Console.WriteLine( "[CatalogController][Index] - (_catalogSvc == null): " + (_catalogSvc == null) );
+            Console.WriteLine("");
+            Console.WriteLine( "[CatalogController][Index] - (BrandFilterApplied).: " + (BrandFilterApplied));
+            Console.WriteLine( "[CatalogController][Index] - (TypeFileterApplied).: " + (TypeFilterApplied));
+            Console.WriteLine( "[CatalogController][Index] - (page)...............: " + (page));
 
             int itemsPage = 10;
             var catalog = await _catalogSvc.GetCatalogItems
@@ -32,19 +35,20 @@ namespace WebMvc.Controllers
                 page ?? 0,
                 itemsPage,
                 BrandFilterApplied,
-                TypeFileterApplied
+                TypeFilterApplied
             );
 
             foreach (CatalogItem ci in catalog.Data)
             {
                 Console.WriteLine("  "); 
-                Console.WriteLine("[CatalogController][Index]: (CatalogItem.PictureUrl)....: " + (ci.PictureUrl)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.CatalogTypeId).: " + (ci.CatalogTypeId)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.CatalogBrandId): " + (ci.CatalogBrandId)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Id)............: " + (ci.Id)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Name)..........: " + (ci.Name)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Description)...: " + (ci.Description)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Price).........: " + (ci.Price)); 
                 Console.WriteLine("[CatalogController][Index]: (CatalogItem.Price).........: " + (ci.CatalogBrandId)); 
-                Console.WriteLine("[CatalogController][Index]: (CatalogItem.CatalogTypeId).: " + (ci.CatalogTypeId)); 
+                Console.WriteLine("[CatalogController][Index]: (CatalogItem.PictureUrl)....: " + (ci.PictureUrl)); 
             }
             
             // Console.WriteLine("[CatalogController][Index]: (_catalogSvc.GetCatalogItems() == null): " + (catalog == null));
@@ -53,17 +57,17 @@ namespace WebMvc.Controllers
             
             var vm = new CatalogIndexViewModel()
             {
-                CatalogItems = catalog.Data,
-                Brands = await _catalogSvc.GetBrands(),
-                Types = await _catalogSvc.GetTypes(),
-                BrandFilterApplied = BrandFilterApplied ?? 0,
-                TypesFilterApplied = TypeFileterApplied ?? 0,
-                PaginationInfo = new PaginationInfo
+                CatalogItems        = catalog.Data,
+                Brands              = await _catalogSvc.GetBrands(),
+                Types               = await _catalogSvc.GetTypes(),
+                BrandFilterApplied  = BrandFilterApplied    ?? 0,
+                TypeFilterApplied   = TypeFilterApplied     ?? 0,
+                PaginationInfo      = new PaginationInfo
                 {
-                    ActualPage = page ?? 0,
-                    ItemsPerPage = itemsPage,
-                    TotalItems = catalog.Count,
-                    TotalPages = (int)Math.Ceiling(((decimal)catalog.Count / itemsPage))
+                    ActualPage      = page ?? 0,
+                    ItemsPerPage    = itemsPage,
+                    TotalItems      = catalog.Count,
+                    TotalPages      = (int)Math.Ceiling(((decimal)catalog.Count / itemsPage))
                 }
             };
 
